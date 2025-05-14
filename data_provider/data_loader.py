@@ -368,9 +368,11 @@ class Dataset_ERA5_Pretrain(Dataset):
         num_train = int(len(df_raw) * 0.7)
         num_test = int(len(df_raw) * 0.2)
         num_vali = len(df_raw) - num_train - num_test
+        # start index
         border1s = [0, num_train - self.seq_len,
                     len(df_raw) - num_test - self.seq_len]
-        border2s = [num_train, num_train + num_vali, len(df_raw)]
+        # end index
+        border2s = [num_train, num_train + num_vali, len(df_raw)]       
         border1 = border1s[self.set_type]
         border2 = border2s[self.set_type]
 
